@@ -1,0 +1,5 @@
+# Intellij
+.idea/
+ExpertAutomationTeam/target
+Generic/target
+*.iml
