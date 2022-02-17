@@ -7,7 +7,7 @@ public class DragNDrop extends CommonAPI {
 
     @Test
     public void dragAndDrop() {
-
+        dragAndDrop("//img[@ondragstart='drag(event)']", "//div[@ondrop='drop(event)']");
     }
 
 }
