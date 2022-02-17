@@ -4,11 +4,13 @@
 <suite name="EAT Automation" parallel="false">
     <parameter name="os" value="windows"></parameter>
     <parameter name="browserName" value="chrome"></parameter>
-    <parameter name="url" value="https://expertautomationteam.com/index.html"></parameter>
+    <parameter name="url" value="https://expertautomationteam.com/practice.html"></parameter>
 
     <test name="ExpertAutomationTeam Practice">
         <classes>
             <class name="practice.Filter"></class>
+            <class name="practice.DragNDrop"></class>
+            <class name="practice.Dropdown"></class>
         </classes>
     </test>
 </suite>

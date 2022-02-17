@@ -18,17 +18,17 @@ public class CommonAPI {
 
     public WebDriver driver;
 
-    public Actions act = new Actions(driver);
+    public Actions act;
 
     @Parameters({"os", "browserName", "url"})
 
     @BeforeMethod
-    public void setUp(@Optional("https://expertautomationteam.com/index.html") String url, @Optional("windows") String os, @Optional("chrome") String browserName) {
+    public void setUp(@Optional("https://expertautomationteam.com/practice.html") String url, @Optional("windows") String os, @Optional("chrome") String browserName) {
         getDriver(os, browserName);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(url);
-        click("//a[@href='practice.html']");
+//        click("//a[@href='practice.html']");
     }
 
     public WebDriver getDriver(String os, String browserName) {
@@ -88,6 +88,7 @@ public class CommonAPI {
     }
 
     public void dragAndDrop(String drag, String drop) {
+        act = new Actions(driver);
         WebElement source = driver.findElement(By.xpath(drag));
         WebElement destination = driver.findElement(By.xpath(drop));
         act.dragAndDrop(source, destination).build().perform();
