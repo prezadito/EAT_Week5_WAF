@@ -8,8 +8,8 @@
 
     <test name="ExpertAutomationTeam Practice">
         <classes>
-            <class name="practice.Filter"></class>
-            <class name="practice.DragNDrop"></class>
+<!--            <class name="practice.Filter"></class>-->
+<!--            <class name="practice.DragNDrop"></class>-->
             <class name="practice.Dropdown"></class>
         </classes>
     </test>

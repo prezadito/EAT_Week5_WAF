@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -23,7 +24,7 @@ public class CommonAPI {
     @Parameters({"os", "browserName", "url"})
 
     @BeforeMethod
-    public void setUp(@Optional("https://expertautomationteam.com/practice.html") String url, @Optional("windows") String os, @Optional("chrome") String browserName) {
+    public void setUp(@Optional("windows") String os, @Optional("chrome") String browserName, @Optional("https://expertautomationteam.com/practice.html") String url) {
         getDriver(os, browserName);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
@@ -92,6 +93,26 @@ public class CommonAPI {
         WebElement source = driver.findElement(By.xpath(drag));
         WebElement destination = driver.findElement(By.xpath(drop));
         act.dragAndDrop(source, destination).build().perform();
+    }
+
+    public void selectFromDropdown(String dropdownLocator, String text) {
+        try {
+            WebElement dropdown = driver.findElement(By.xpath(dropdownLocator));
+            Select select = new Select(dropdown);
+            select.selectByVisibleText(text);
+        } catch (Exception e) {
+            WebElement dropdown = driver.findElement(By.cssSelector(dropdownLocator));
+            Select select = new Select(dropdown);
+            select.selectByVisibleText(text);
+        }
+    }
+
+    public void waitFor(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 

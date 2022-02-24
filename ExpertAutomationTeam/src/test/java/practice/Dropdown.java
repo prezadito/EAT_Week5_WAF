@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class Dropdown extends CommonAPI {
 
-    @Test
+//    @Test
     public void dropdownList() {
         click("//select[@name='cars']");
         click("//option[text()='Volvo']");
@@ -13,7 +13,8 @@ public class Dropdown extends CommonAPI {
 
     @Test
     public void dropDownListGroup() {
-
+        selectFromDropdown("//select[@id='multipleCourse']", "American History");
+        waitFor(3);
     }
 
 }
